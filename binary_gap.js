@@ -3,10 +3,8 @@ function dec2bin(dec) {
 }
 
 function getGaps(array, gaps) {
-    //     console.log("array:" + array);
     const firstOne = array.indexOf('1');
     const rest = array.splice(firstOne + 1)
-
     const secondOne = rest.indexOf("1");
     if (secondOne > 0) {
         gaps.push(secondOne);
@@ -23,22 +21,19 @@ function solution(value) {
         const decimal = dec2bin(value);
         const split = decimal.split('');
         const gaps = getGaps(split, []);
-
         if (Array.isArray(gaps) && gaps.length) {
             let largest = gaps[0];
             for (var i = 0; i < gaps.length; i++) {
                 if (largest < gaps[i]) {
-                    largest = gaps[i];
-
+                    largest = gaps[i];                    
                 }
             }
-            console.log("largest: " + largest);
             return largest;
 
         } else {
             return 0;
         }
     } else {
-        return;
+        return 0;
     }
 }
