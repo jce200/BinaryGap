@@ -15,23 +15,26 @@ function getGaps(array, gaps) {
     return gaps;
 }
 
+function maxValue(gaps) {
+    if (Array.isArray(gaps) && gaps.length) {
+        let largest = gaps[0];
+        for (var i = 0; i < gaps.length; i++) {
+            if (largest < gaps[i]) {
+                largest = gaps[i];
+            }
+        }
+        return largest;
+    } else {
+        return 0;
+    }
+}
+
 function solution(value) {
     if (Number.isInteger(value) && value > 1 && value < 2147483647) {
         const decimal = dec2bin(value);
         const split = decimal.split('');
         const gaps = getGaps(split, []);
-        if (Array.isArray(gaps) && gaps.length) {
-            let largest = gaps[0];
-            for (var i = 0; i < gaps.length; i++) {
-                if (largest < gaps[i]) {
-                    largest = gaps[i];                    
-                }
-            }
-            return largest;
-
-        } else {
-            return 0;
-        }
+        return maxValue(gaps);
     } else {
         return 0;
     }
