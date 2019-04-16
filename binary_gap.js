@@ -15,7 +15,6 @@ function getGaps(array, gaps) {
     return gaps;
 }
 
-
 function solution(value) {
     if (Number.isInteger(value) && value > 1 && value < 2147483647) {
         const decimal = dec2bin(value);
